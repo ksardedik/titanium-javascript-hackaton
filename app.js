@@ -36,6 +36,7 @@ const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 
 const lessonController = require('./controllers/lesson');
+const taskController = require('./controllers/task');
 const adminController = require('./controllers/admin');
 
 /**
@@ -144,10 +145,12 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 
 app.get('/admin', adminController.getView );
 app.get('/admin/lessons', lessonController.getLess );
-app.get('/lessons', lessonController.getLesson );
+app.get('/admin/lessons/:id', lessonController.getLesson );
 app.get('/admin/lesson-form', lessonController.addLess );
 app.post('/admin/lesson-form', lessonController.createLesson);
 //app.post('/admin/lesson-form', lessonController.getLesson);
+app.get('/admin/task-form', taskController.addTask );
+app.post('/admin/task-form', taskController.createTask);
 
 
 app.get('/test', (req, res) => {

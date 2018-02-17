@@ -1,0 +1,4 @@
+div(class='container admins')
+    each val in tasks
+        div(class='added')
+            a(href='/lessons?lesson_id='+val._id)= 'Task - ' + val.name

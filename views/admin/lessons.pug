@@ -2,4 +2,4 @@ include ../layout.pug
 div(class='container')
 	each val in lessons
 		div(class='added')
-			a(href='/lessons?lesson_id='+val._id)= 'Lesson - ' + val.name
+			a(href='/admin/lessons/'+val._id)= 'Lesson - ' + val.name

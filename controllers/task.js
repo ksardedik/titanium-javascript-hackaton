@@ -5,13 +5,13 @@ const passport = require('passport');
 const Task = require('../models/Task');
 
 exports.addTask = (req, res) => {
- res.render('admin/admin', {
+ res.render('admin/task', {
    title: 'Tasks'
  });
 };
 
 exports.getTasks = (req,res) => {
-  tasks Task.findById(req.params.lesson_id, (err, tsk) => {
+  tasks = Task.findById(req.params.lesson_id, (err, tsk) => {
     res.render('admin/lesson', {
       title: 'Tasks',
       tasks: tsk
@@ -44,10 +44,10 @@ exports.createTask = (req, res) => {
   }
 
   const task = new Task({
-	lessonId: req.body.task_lessonId,
+  	lessonId: req.body.task_lessonId,
     name: req.body.task_name,
     description: req.body.task_description,
-	tests: req.body.task_tests
+  	tests: req.body.task_tests
   });
 
   task.save((err) => {
