@@ -1,5 +1,6 @@
-
 include ../layout.pug
 div(class='container')
-each val in lessons
-	div(class='added ')= val.name
+	each val in lessons
+		div(class='added')
+			a(href='/lessons/#{val.id}')= 'Lesson - ' + val.name
+
