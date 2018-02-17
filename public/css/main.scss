@@ -72,3 +72,50 @@ textarea {
 .navbar {
   background-color: black;
 }
+form{
+  margin-top:30px;
+}
+input {
+  background-color: #333;
+  border:1px solid yellow;
+  border-radius: 3px;
+  color: white;
+}
+.name_add {
+width: 220px;
+height: 40px;
+margin-bottom: 30px;
+}
+.text_add {
+  background-color: #333;
+  border:1px solid yellow;
+  color: white;
+}
+.submited {
+  background-color: yellow;
+  font-size: 20px;
+  color: black;
+  border: 1px solid yellow;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-left: 345px;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+.added {
+  font-size: 32px;
+  collor: #333
+  &:hover {
+    collor: yellow;
+  }
+}

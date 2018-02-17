@@ -1,5 +1,8 @@
 include ../layout.pug
-form(action='/admin/lesson-form', method ='POST')
-	input(type='text', placeholder='Lesson name', name="lesson_name",maxlength=20)
-	input(type='text', placeholder='Text area',name = "lesson_description" ,maxlength=200)
-	button(type='submit') Submit
+div(class='container')
+	form(action='/admin/lesson-form', method ='POST')
+		input(type='text', placeholder='Lesson name', name="lesson_name",maxlength=20,class='name_add')
+		br
+		textarea(placeholder='Text area',name = "lesson_description" ,maxlength=200,class='text_add',cols='50',rows='8')
+		br
+		button(type='submit',class='submited') Submit
