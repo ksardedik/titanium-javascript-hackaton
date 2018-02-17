@@ -5,10 +5,19 @@ const passport = require('passport');
 const Task = require('../models/Task');
 
 exports.addTask = (req, res) => {
- res.render('admin/admin', {
+ res.render('admin/task', {
    title: 'Tasks'
  });
 };
+
+exports.getTasks = (req,res) => {
+  tasks = Task.findById(req.params.lesson_id, (err, tsk) => {
+    res.render('admin/lesson', {
+      title: 'Tasks',
+      tasks: tsk
+    });
+  });
+}
 
 exports.getTask = (req, res) => {
 tasks = Task.find({},(err, tsk) => {
@@ -26,9 +35,6 @@ exports.createTask = (req, res) => {
   req.assert('task_description','Task description cannot be empty').notEmpty();
   //req.assert('task_tests','tests is too long').len(200);
 
-
-
-
   const errors = req.validationErrors();
 
   if (errors) {
@@ -38,10 +44,10 @@ exports.createTask = (req, res) => {
   }
 
   const task = new Task({
-	lessonId: req.body.task_lessonId,
+  	lessonId: req.body.task_lessonId,
     name: req.body.task_name,
     description: req.body.task_description,
-	tests: req.body.task_tests
+  	tests: req.body.task_tests
   });
 
   task.save((err) => {
@@ -49,24 +55,6 @@ exports.createTask = (req, res) => {
     res.redirect('/admin/task-form');
   });
 };
-
-exports.getTask = (req, res) => {
-  Task.find({},(err, tasks) => {
-    req.flash('info', { tasks: tasks });
-    res.redirect('/tasks');
-
-    /*
-    if (err) { return next(err); }
-    user[provider] = undefined;
-    user.tokens = user.tokens.filter(token => token.kind !== provider);
-    user.save((err) => {
-      if (err) { return next(err); }
-      req.flash('info', { msg: `${provider} account has been unlinked.` });
-      res.redirect('/account');
-    });
-    */
-  });
-}
 
 exports.updateTask = (req, res, next) => {
 };

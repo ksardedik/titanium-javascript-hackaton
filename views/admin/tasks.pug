@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 include ../layout.pug
 div(class='container admins')
 	each val in tasks
 		div(class='added')
 			a(href='/lessons?lesson_id='+val._id)= 'Task - ' + val.name
+=======
+div(class='container admins')
+    each val in tasks
+        div(class='added')
+            a(href='/lessons?lesson_id='+val._id)= 'Task - ' + val.name
+>>>>>>> 7565c9a50716fefc42c09f35d74875d53a5ac30b

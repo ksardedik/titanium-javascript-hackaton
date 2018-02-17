@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 
 
- 
+
  /* email: { type: String, unique: true },
   password: String,
   passwordResetToken: String,
@@ -63,8 +63,8 @@ userSchema.methods.comparePassword = function comparePassword(candidatePassword,
 };
 
 */
-	
-	
+
+
 /**
  * Helper method for getting user's gravatar.
  */
@@ -85,10 +85,10 @@ const User = mongoose.model('User', userSchema);
 module.exports = User;
 
 */
-	
+
 const taskSchema = new mongoose.Schema({
-	
-lessonId: {type : Schema.Types.ObjectId},
+
+lessonId: {type : String},
 name: {type: String},
 description: {type: String},
 tests: {type: String}
