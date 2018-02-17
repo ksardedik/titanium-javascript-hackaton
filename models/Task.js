@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
 	
-lessonId: {type : Schema.ObjectId},
+lessonId: {type : mongoose.Schema.ObjectId},
 name: {type: String},
 description: {type: String},
 tests: {type: String}
