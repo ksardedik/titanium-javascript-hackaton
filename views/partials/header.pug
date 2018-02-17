@@ -15,7 +15,11 @@
         li(class=(title === 'API Examples') ? 'active' : undefined)
           a(href='/api') API Examples     
         li
-          a(href='/admin') Admin
+          a(href='/admin') Admin        
+        li
+          a(href='/admin/lessons') lessons        
+        li
+          a(href='/admin/tasks') tasks
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(title === 'Login') ? 'active' : undefined)

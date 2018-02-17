@@ -1,10 +1,10 @@
 include ../layout.pug
 div(class='container')
-form(action='/admin/task-form', method ='POST')
-  input(type='text', placeholder='Lesson id', name="lesson_id",maxlength=100,class='name_add')
-  br
-  input(type='text', placeholder='Task name', name="task_name",maxlength=20,class='name_add')
-  br
-  textarea(placeholder='Text area',name = "task_description" ,maxlength=200,class='text_add',cols='50',rows='8')
-  br
-  button(type='submit',class='submited') Submit
+	form(action='/admin/task-form', method ='POST')
+		input(type='text', placeholder='Lesson id', name="lesson_id",maxlength=100,class='name_add')
+		br
+		input(type='text', placeholder='Task name', name="task_name",maxlength=20,class='name_add')
+		br
+		textarea(placeholder='Text area',name = "task_description" ,maxlength=200,class='text_add',cols='50',rows='8')
+		br
+		button(type='submit',class='submited') Submit
