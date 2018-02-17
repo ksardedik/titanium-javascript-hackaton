@@ -34,6 +34,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+
 const lessonController = require('./controllers/lesson');
 
 /**
@@ -88,6 +89,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+/*
 app.use((req, res, next) => {
   if (req.path === '/api/upload') {
     next();
@@ -95,6 +97,7 @@ app.use((req, res, next) => {
     lusca.csrf()(req, res, next);
   }
 });
+*/
 app.use(lusca.xframe('SAMEORIGIN'));
 app.use(lusca.xssProtection(true));
 app.use((req, res, next) => {
@@ -137,8 +140,9 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-app.get('/admin/lesson-form', lessonController.addLess )
 
+app.get('/admin/lesson-form', lessonController.addLess );
+app.post('/admin/lesson-form', lessonController.createLesson);
 
 app.get('/test', (req, res) => {
     res.json({
