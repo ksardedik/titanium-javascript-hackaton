@@ -2,12 +2,16 @@ const bluebird = require('bluebird');
 const crypto = bluebird.promisifyAll(require('crypto'));
 const nodemailer = require('nodemailer');
 const passport = require('passport');
+const Lesson = require('../models/Lesson');
 const Task = require('../models/Task');
 
 exports.addTask = (req, res) => {
- res.render('admin/task', {
-   title: 'Tasks'
- });
+  Lesson.find({}, (err, lsn) => {
+    res.render('admin/task', {
+      title: 'Tasks',
+      lessons: lsn
+    });
+  });
 };
 
 exports.getAllTasks = (req,res) => {

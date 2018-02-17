@@ -1,7 +1,10 @@
 include ../layout.pug
 div(class='container')
   form(action='/admin/task-form', method ='POST')
-    input(type='text', placeholder='Lesson id', name="lesson_id",maxlength=100,class='name_add')
+    //input(type='text', placeholder='Lesson id', name="lesson_id",maxlength=100,class='name_add')
+    select(name="lesson_id", id='select')
+      each lesson in lessons
+        option(value=lesson._id) #{lesson.name}
     br
     input(type='text', placeholder='Task name', name="task_name",maxlength=20,class='name_add')
     br
