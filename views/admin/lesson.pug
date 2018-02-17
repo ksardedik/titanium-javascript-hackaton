@@ -1,9 +1,9 @@
 include ../layout.pug
-
-h1=lesson.name
-p=lesson.description
+div(class='container')
+  h1= lesson.name
+  p= lesson.description
 
 div(class='container')
-	each task in tasks
-		div(class='added')
-			a(href='/admin/tasks/'+task._id)= 'Task - ' + task.name
+  each task in tasks
+    div(class='added')
+      a(href='/admin/tasks/'+task._id)= 'Task - ' + task.name
