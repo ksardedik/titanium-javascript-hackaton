@@ -121,3 +121,29 @@ margin-bottom: 30px;
     color: yellow;
   };
 }
+.ramka {
+  margin-top: 100px;
+  background-color: yellow;
+  width: 200px;
+  line-height: 50px;
+  text-align: center;
+}
+.new {
+  text-decoration: none;
+  font-size: 22px;
+  color: #333;
+  &:hover {
+    color: #4da5f4;
+    text-decoration: none;
+  };
+}
+.new1 {
+  float: left;
+  display: inline-block;
+  margin-left: 200px;
+}
+.new2 {
+  float: right;
+  display: inline-block;
+  margin-right: 200px;
+}
