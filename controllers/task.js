@@ -26,9 +26,9 @@ exports.createTask = (req, res) => {
   req.assert('task_description','Task description cannot be empty').notEmpty();
   //req.assert('task_tests','tests is too long').len(200);
 
-  
-  
-  
+
+
+
   const errors = req.validationErrors();
 
   if (errors) {
@@ -54,7 +54,7 @@ exports.getTask = (req, res) => {
   Task.find({},(err, tasks) => {
     req.flash('info', { tasks: tasks });
     res.redirect('/tasks');
-	
+
     /*
     if (err) { return next(err); }
     user[provider] = undefined;

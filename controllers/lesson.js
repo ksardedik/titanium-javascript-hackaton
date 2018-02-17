@@ -12,10 +12,10 @@ exports.addLess = (req, res) => {
 
 exports.getLess = (req, res) => {
   lessons = Lesson.find({},(err, les) => {
-    res.render('admin/lessons', {
-      title: 'Lessons',
-      lessons: les
-    });
+  res.render('admin/lessons', {
+    title: 'Lessons',
+    lessons: les
+  });
   });
 };
 
