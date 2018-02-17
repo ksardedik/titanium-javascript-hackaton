@@ -2,8 +2,16 @@ const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-  email: { type: String, unique: true },
+const taskSchema = new mongoose.Schema({
+ 
+name: {type: String},
+description: {type: String},
+tests: {type: String}
+
+});
+
+ 
+ /* email: { type: String, unique: true },
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
@@ -25,10 +33,15 @@ const userSchema = new mongoose.Schema({
     picture: String
   }
 }, { timestamps: true });
+*/
+
+
+
 
 /**
  * Password hash middleware.
  */
+ /*
 userSchema.pre('save', function save(next) {
   const user = this;
   if (!user.isModified('password')) { return next(); }
@@ -42,18 +55,25 @@ userSchema.pre('save', function save(next) {
   });
 });
 
+*/
+
 /**
  * Helper method for validating user's password.
  */
+ /*
 userSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     cb(err, isMatch);
   });
 };
 
+*/
+	
+	
 /**
  * Helper method for getting user's gravatar.
  */
+ /*
 userSchema.methods.gravatar = function gravatar(size) {
   if (!size) {
     size = 200;
@@ -68,3 +88,9 @@ userSchema.methods.gravatar = function gravatar(size) {
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+
+*/
+
+const Task = mongoose.model('Task', taskSchema);
+
+module.exports = Task;
