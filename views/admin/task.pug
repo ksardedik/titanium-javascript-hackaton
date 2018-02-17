@@ -1,5 +1,6 @@
 include ../layout.pug
 div(class='container')
+<<<<<<< HEAD
 	form(action='/admin/task-form', method ='POST')
 		input(type='text', placeholder='Lesson id', name="lesson_id",maxlength=100,class='name_add')
 		br
@@ -8,3 +9,15 @@ div(class='container')
 		textarea(placeholder='Text area',name = "task_description" ,maxlength=200,class='text_add',cols='50',rows='8')
 		br
 		button(type='submit',class='submited') Submit
+=======
+form(action='/admin/task-form', method ='POST')
+  input(type='text', placeholder='Lesson id', name="lesson_id",maxlength=100,class='name_add')
+  br
+  input(type='text', placeholder='Task name', name="task_name",maxlength=20,class='name_add')
+  br
+  textarea(placeholder='Text area',name = "task_description" ,maxlength=200,class='text_add',cols='50',rows='8')
+  br
+  textarea(placeholder='Test',name = "task_tests" ,maxlength=400,class='text_add',cols='50',rows='8')
+  br
+  button(type='submit',class='submited') Submit
+>>>>>>> 6fc9a7a09af559802566bc3d19a52472a0620f4a

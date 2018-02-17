@@ -3,6 +3,7 @@ const crypto = bluebird.promisifyAll(require('crypto'));
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const Lesson = require('../models/Lesson');
+const Task = require('../models/Task');
 
 exports.addLess = (req, res) => {
  res.render('admin/admin', {
@@ -21,10 +22,12 @@ exports.getLess = (req, res) => {
 
 exports.getLesson = (req, res) => {
   Lesson.findById(req.params.id, (err, lesson) => {
-    res.render('admin/lesson', {
-      title: lesson.name,
-      lesson: lesson,
-      tasks: {'name': ''}
+    Task.find({ 'lessonId': req.params.id }, (err, tasks) => {
+      res.render('admin/lesson', {
+        title: 'titleTest',
+        lesson: lesson,
+        tasks: tasks
+      });
     });
   });
 };

@@ -1,4 +1,8 @@
 include ../layout.pug
+
+h1=lesson.name
+p=lesson.description
+
 div(class='container')
 	each task in tasks
 		div(class='added')
