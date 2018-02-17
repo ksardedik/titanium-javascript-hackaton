@@ -11,9 +11,12 @@ exports.addLess = (req, res) => {
 };
 
 exports.getLess = (req, res) => {
- res.render('lessons', {
-   title: 'Lessons'
- });
+lessons = Lesson.find({},(err, les) => {
+  res.render('admin/lessons', {
+    title: 'Lessons',
+    lessons: les
+  });
+});
 };
 
 //Crete new lesson
@@ -47,7 +50,9 @@ exports.createLesson = (req, res) => {
 
 exports.getLesson = (req, res) => {
   Lesson.find({},(err, lessons) => {
-    console.log(lessons);
+    req.flash('info', { lessons: lessons });
+    res.redirect('/lessons');
+
     /*
     if (err) { return next(err); }
     user[provider] = undefined;

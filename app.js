@@ -141,7 +141,7 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
-app.get('/admin/lesson-form', lessonController.getLess );
+app.get('/admin/lessons', lessonController.getLess );
 app.get('/admin/lesson-form', lessonController.addLess );
 app.post('/admin/lesson-form', lessonController.createLesson);
 //app.post('/admin/lesson-form', lessonController.getLesson);
