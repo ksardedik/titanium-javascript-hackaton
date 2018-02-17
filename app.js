@@ -151,6 +151,7 @@ app.post('/admin/lesson-form', lessonController.createLesson);
 //app.post('/admin/lesson-form', lessonController.getLesson);
 app.get('/admin/task-form', taskController.addTask );
 app.post('/admin/task-form', taskController.createTask);
+app.get('/admin/tasks/:id', taskController.getTask );
 
 
 app.get('/test', (req, res) => {

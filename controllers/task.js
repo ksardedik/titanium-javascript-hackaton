@@ -28,6 +28,15 @@ tasks = Task.find({},(err, tsk) => {
 });
 };
 
+exports.getTask = (req, res) => {
+    Task.findById( req.params.id, (err, task) => {
+      res.render('admin/task', {
+        title: 'titleTest',
+        task: task
+      });
+    });
+};
+
 //Crete new task
 exports.createTask = (req, res) => {
   //req.assert('task_lessonId','lessonId is too long').len(200);

@@ -1,8 +1,0 @@
-include ../layout.pug
-	div(class='container')
-		h1 lesson.name
-		p lesson.description
-
-	each val in tasks
-		div(class='added')
-			a(href='/lessons?lesson_id='+val._id)= 'Task - ' + val.name
