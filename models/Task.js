@@ -3,7 +3,8 @@ const crypto = require('crypto');
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
- 
+	
+lessonId: {type : Schema.ObjectId},
 name: {type: String},
 description: {type: String},
 tests: {type: String}
