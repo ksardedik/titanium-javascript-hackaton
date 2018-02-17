@@ -12,25 +12,48 @@ exports.addLess = (req, res) => {
 
 //Crete new lesson
 exports.createLesson = (req, res) => {
-  //req.assert('lesson_name','Name of the lesson is too long').len(20);
-  //req.assert('lesson_description','Description is too long').len(200);
+  req.assert('lesson_name', 'Lesson name cannot be empty').notEmpty();
+  req.assert('lesson_description', 'Lesson description cannot be empty').notEmpty();
+
+/*
+  if(len(req.body.lesson_name)>20){
+  }
+  */
 
   const errors = req.validationErrors();
 
   if (errors) {
     req.flash('errors', errors);
     console.log('err',errors);
-    return res.redirect('/home');
+    return res.redirect('/admin/lesson-form');
   }
 
   const lesson = new Lesson({
-    name: req.body.name,
-    description: req.body.description
+    name: req.body.lesson_name,
+    description: req.body.lesson_description
   });
 
   lesson.save((err) => {
     if (err) { return next(err); }
     res.redirect('/admin/lesson-form');
-    //res.send('result');
   });
+};
+
+exports.getLesson = (req, res) => {
+  Lesson.find((err, lessons) => {
+    console.log(lessons);
+    /*
+    if (err) { return next(err); }
+    user[provider] = undefined;
+    user.tokens = user.tokens.filter(token => token.kind !== provider);
+    user.save((err) => {
+      if (err) { return next(err); }
+      req.flash('info', { msg: `${provider} account has been unlinked.` });
+      res.redirect('/account');
+    });
+    */
+  });
+}
+
+exports.updateLesson = (req, res, next) => {
 };

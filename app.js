@@ -51,7 +51,7 @@ const app = express();
  * Connect to MongoDB.
  */
 mongoose.Promise = global.Promise;
-process.env.MONGODB_URI = 'mongodb://192.168.1.180:27017';
+process.env.MONGODB_URI = 'mongodb://localhost:27017';
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', (err) => {
   console.error(err);
@@ -141,8 +141,10 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
+app.get('/admin/lesson-form', lessonController.getLesson );
 app.get('/admin/lesson-form', lessonController.addLess );
 app.post('/admin/lesson-form', lessonController.createLesson);
+//app.post('/admin/lesson-form', lessonController.getLesson);
 
 app.get('/test', (req, res) => {
     res.json({

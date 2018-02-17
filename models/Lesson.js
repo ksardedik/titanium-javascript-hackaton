@@ -2,17 +2,6 @@ const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 
-const lessonSchema = new mongoose.Schema({
-/*
-  email: { type: String, unique: true },
-  password: String,
-  passwordResetToken: String,
-  passwordResetExpires: Date,
-  */
-
-name: {type: String},
-description: {type: String}
-});
 /*
   facebook: String,
   twitter: String,
@@ -80,5 +69,11 @@ const User = mongoose.model('User', userSchema);
 
 module.exports = User;
 */
-const Lesson = mongoose.model('Lesson', lessonSchema);
+
+const lessonSchema = new mongoose.Schema({
+  name: {type: String},
+  description: {type: String}
+});
+
+const Lesson = mongoose.model('lessons', lessonSchema);
 module.exports = Lesson;
