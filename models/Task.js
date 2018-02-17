@@ -96,6 +96,6 @@ tests: {type: String}
 });
 
 
-const Task = mongoose.model('Task', taskSchema);
+const Task = mongoose.model('tasks', taskSchema);
 
 module.exports = Task;
