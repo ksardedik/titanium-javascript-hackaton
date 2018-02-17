@@ -6,14 +6,17 @@ const Task = require('../models/Task');
 
 exports.addTask = (req, res) => {
  res.render('admin/admin', {
-   title: 'Task'
+   title: 'Tasks'
  });
 };
 
 exports.getTask = (req, res) => {
- res.render('tasks', {
-   title: 'Tasks'
- });
+tasks = Task.find({},(err, tsk) => {
+  res.render('admin/tasks', {
+    title: 'Tasks',
+    tasks: tsk
+  });
+});
 };
 
 //Crete new task
@@ -49,7 +52,9 @@ exports.createTask = (req, res) => {
 
 exports.getTask = (req, res) => {
   Task.find({},(err, tasks) => {
-    console.log(tasks);
+    req.flash('info', { tasks: tasks });
+    res.redirect('/tasks');
+	
     /*
     if (err) { return next(err); }
     user[provider] = undefined;
