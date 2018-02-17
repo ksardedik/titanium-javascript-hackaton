@@ -3,6 +3,6 @@ include ../layout.pug
 		h1 lesson.name
 		p lesson.description
 
-	each val in task
+	each val in tasks
 		div(class='added')
 			a(href='/lessons?lesson_id='+val._id)= 'Task - ' + val.name
