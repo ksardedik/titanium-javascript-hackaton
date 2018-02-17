@@ -10,6 +10,15 @@ exports.addTask = (req, res) => {
  });
 };
 
+exports.getTasks = (req,res) => {
+  tasks Task.findById(req.params.lesson_id, (err, tsk) => {
+    res.render('admin/lesson', {
+      title: 'Tasks',
+      tasks: tsk
+    });
+  });
+}
+
 exports.getTask = (req, res) => {
 tasks = Task.find({},(err, tsk) => {
   res.render('admin/tasks', {
@@ -25,9 +34,6 @@ exports.createTask = (req, res) => {
   req.assert('task_name','Task name cannot be empty').notEmpty();
   req.assert('task_description','Task description cannot be empty').notEmpty();
   //req.assert('task_tests','tests is too long').len(200);
-
-
-
 
   const errors = req.validationErrors();
 
@@ -49,24 +55,6 @@ exports.createTask = (req, res) => {
     res.redirect('/admin/task-form');
   });
 };
-
-exports.getTask = (req, res) => {
-  Task.find({},(err, tasks) => {
-    req.flash('info', { tasks: tasks });
-    res.redirect('/tasks');
-
-    /*
-    if (err) { return next(err); }
-    user[provider] = undefined;
-    user.tokens = user.tokens.filter(token => token.kind !== provider);
-    user.save((err) => {
-      if (err) { return next(err); }
-      req.flash('info', { msg: `${provider} account has been unlinked.` });
-      res.redirect('/account');
-    });
-    */
-  });
-}
 
 exports.updateTask = (req, res, next) => {
 };
