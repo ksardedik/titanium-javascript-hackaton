@@ -4,14 +4,6 @@ const mongoose = require('mongoose');
 
 
 
-const taskSchema = new mongoose.Schema({
-	
-lessonId: {type : Schema.Types.ObjectId},
-name: {type: String},
-description: {type: String},
-tests: {type: String}
-
-});
 
  
  /* email: { type: String, unique: true },
@@ -93,6 +85,16 @@ const User = mongoose.model('User', userSchema);
 module.exports = User;
 
 */
+	
+const taskSchema = new mongoose.Schema({
+	
+lessonId: {type : Schema.Types.ObjectId},
+name: {type: String},
+description: {type: String},
+tests: {type: String}
+
+});
+
 
 const Task = mongoose.model('Task', taskSchema);
 
