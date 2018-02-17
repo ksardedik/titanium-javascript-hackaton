@@ -44,7 +44,7 @@ exports.createTask = (req, res) => {
   }
 
   const task = new Task({
-  	lessonId: req.body.task_lessonId,
+  	lessonId: req.body.lesson_id,
     name: req.body.task_name,
     description: req.body.task_description,
   	tests: req.body.task_tests
