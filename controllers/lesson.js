@@ -11,13 +11,20 @@ exports.addLess = (req, res) => {
 };
 
 exports.getLess = (req, res) => {
-lessons = Lesson.find({},(err, les) => {
+  lessons = Lesson.find({},(err, les) => {
   res.render('admin/lessons', {
     title: 'Lessons',
     lessons: les
   });
 });
 };
+
+exports.getLesson = (req, res) => {
+  Lesson.find({},(err, lessons) => {
+    req.flash('info', { lessons: lessons });
+    res.redirect('/lessons');
+  });
+}
 
 //Crete new lesson
 exports.createLesson = (req, res) => {
@@ -47,24 +54,6 @@ exports.createLesson = (req, res) => {
     res.redirect('/admin/lesson-form');
   });
 };
-
-exports.getLesson = (req, res) => {
-  Lesson.find({},(err, lessons) => {
-    req.flash('info', { lessons: lessons });
-    res.redirect('/lessons');
-
-    /*
-    if (err) { return next(err); }
-    user[provider] = undefined;
-    user.tokens = user.tokens.filter(token => token.kind !== provider);
-    user.save((err) => {
-      if (err) { return next(err); }
-      req.flash('info', { msg: `${provider} account has been unlinked.` });
-      res.redirect('/account');
-    });
-    */
-  });
-}
 
 exports.updateLesson = (req, res, next) => {
 };
