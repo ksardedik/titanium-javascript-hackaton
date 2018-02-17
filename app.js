@@ -51,6 +51,7 @@ const app = express();
  * Connect to MongoDB.
  */
 mongoose.Promise = global.Promise;
+process.env.MONGODB_URI = 'mongodb://192.168.1.180:27017';
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', (err) => {
   console.error(err);
