@@ -10,6 +10,15 @@ exports.addTask = (req, res) => {
  });
 };
 
+exports.getAllTasks = (req,res) => {
+  Task.find({}, (err, tsk) => {
+    res.render('admin/tasks', {
+      title: 'Tasks',
+      tasks: tsk
+    });
+  });
+}
+
 exports.getTasks = (req,res) => {
   tasks = Task.findById(req.params.lesson_id, (err, tsk) => {
     res.render('admin/lesson', {
@@ -28,9 +37,10 @@ tasks = Task.find({},(err, tsk) => {
 });
 };
 
-exports.getTask = (req, res) => {
+exports.getTaskDescription = (req, res) => {
     Task.findById( req.params.id, (err, task) => {
-      res.render('admin/task', {
+      console.log(task);
+      res.render('admin/td', {
         title: 'titleTest',
         task: task
       });

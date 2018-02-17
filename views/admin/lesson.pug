@@ -6,4 +6,4 @@ p=lesson.description
 div(class='container')
 	each task in tasks
 		div(class='added')
-			a(href='/tasks?task_id='+task._id)= 'Task - ' + task.name
+			a(href='/admin/tasks/'+task._id)= 'Task - ' + task.name
