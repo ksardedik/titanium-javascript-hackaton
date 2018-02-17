@@ -10,6 +10,12 @@ exports.addLess = (req, res) => {
  });
 };
 
+exports.getLess = (req, res) => {
+ res.render('lessons', {
+   title: 'Lessons'
+ });
+};
+
 //Crete new lesson
 exports.createLesson = (req, res) => {
   req.assert('lesson_name', 'Lesson name cannot be empty').notEmpty();
@@ -40,7 +46,7 @@ exports.createLesson = (req, res) => {
 };
 
 exports.getLesson = (req, res) => {
-  Lesson.find((err, lessons) => {
+  Lesson.find({},(err, lessons) => {
     console.log(lessons);
     /*
     if (err) { return next(err); }
