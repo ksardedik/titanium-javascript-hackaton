@@ -2,9 +2,11 @@ const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 
+
+
 const taskSchema = new mongoose.Schema({
 	
-lessonId: {type : Schema.ObjectId},
+lessonId: {type : Schema.Types.ObjectId},
 name: {type: String},
 description: {type: String},
 tests: {type: String}
