@@ -88,6 +88,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+/*
 app.use((req, res, next) => {
   if (req.path === '/api/upload') {
     next();
@@ -95,6 +96,7 @@ app.use((req, res, next) => {
     lusca.csrf()(req, res, next);
   }
 });
+*/
 app.use(lusca.xframe('SAMEORIGIN'));
 app.use(lusca.xssProtection(true));
 app.use((req, res, next) => {
@@ -138,10 +140,8 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
-<<<<<<< HEAD
-app.get('/admin/lesson-form', lessonController.addLess )
-=======
->>>>>>> 502b0b368e6f095c1d7780722216802776b66ece
+app.get('/admin/lesson-form', lessonController.addLess );
+app.post('/admin/lesson-form', lessonController.createLesson);
 
 app.get('/test', (req, res) => {
     res.json({

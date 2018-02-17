@@ -12,7 +12,7 @@ const lessonSchema = new mongoose.Schema({
 
 name: {type: String},
 description: {type: String}
-
+});
 /*
   facebook: String,
   twitter: String,

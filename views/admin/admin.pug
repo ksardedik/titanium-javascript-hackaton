@@ -1,5 +1,5 @@
 include ../layout.pug
-form(action='../../controllers/lesson.js', method ='POST') 
+form(action='/admin/lesson-form', method ='POST') 
 	input(type='text', placeholder='Lesson name', name=lesson_name,maxlength=20)
 	input(type='text', placeholder='Text area',name = lesson_description ,maxlength=200)
 	button(type='submit') Submit
